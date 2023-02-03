@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./mediaqueries.css">
+    <title>Coffe and Cats</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header id="header">
+
+        <img src="./assets/logo/19.png" alt="logo" class="logo">
+
+        <nav class="navbar">
+            <!-- MENU HAMBURGUESA -->
+            <label for="menu-toggle" class="menu-label">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <input type="checkbox" id="menu-toggle">
+
+            <ul class="navbar__list">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#section__nosotros">Nosotros</a></li>
+                <li><a href="#section__menu">Menú</a></li>
+                <li><a href="#section__adopciones">Adopciones</a></li>
+                <li><a href="#section__location">Dónde nos encontramos</a></li>
+                <li><a target="_self" href="login.html" target="__blank">Ingresar</a></li>
+                <li><a target="_self" href="registro.html" target="__blank">Registrarse</a></li>
+            </ul>
+
+            <label for="cart-toggle" class="cart-label cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </label>
+
+            <div class="overlay"></div> 
+
+        </nav>
+
+    </header>
+
+    <main id="main">
+
+        <!-- PORTADA -->
+
+        <section class="section__hero">
+
+            <div class="section__hero-info">
+                <h1>CELEBRAMOS EL AMOR POR EL CAFÉ Y LOS GATITOS</h1>
+                <p>
+                    ¡Déjate seducir por el aroma del café recién hecho y el ronroneo de los gatos!
+                </p>
+                <p>
+                    Aquí encontrarás un oasis de tranquilidad y felicidad donde disfrutar de una taza de tu café favorito rodeado de gatos cariñosos y juguetones.
+                </p>
+                <p>
+                    Ofrecemos una selección de cafés de alta calidad y opciones de pastelería plant based. Además, nuestros
+                    gatos son todos rescatados y están disponibles para adopción. <span>¡Te esperamos!</span>
+                </p>
+            </div>
+
+            <img class="hero__img" src="./assets/1-removebg-preview.png" alt="c&c-img">
+
+        </section>
+    
+        <!-- NOSOTROS -->
+
+        <section id="section__nosotros">
+
+            <h2>Nosotros</h2>
+
+            <p>
+            Somos un negocio familiar que abrió sus puertas hace 5 años, con la idea de crear un lugar relajante y
+            acogedor donde las personas pudieran disfrutar de su café favorito y al mismo tiempo interactuar con los
+            gatos.
+
+            Estamos comprometidos con la sostenibilidad y trabajamos duro para reducir nuestra huella ambiental, desde
+            la selección de proveedores hasta la implementación de prácticas de reciclaje y conservación de energía en
+            nuestro negocio.
+
+            Nos encanta tener a nuestros clientes como parte de nuestra comunidad y esperamos verte pronto en
+            <span>Coffe & Cats</span>.
+            </p>
+            <p>¡Gracias por apoyar a nuestra pequeña empresa!</p>
+
+        </section>
+
+        <div class="container_divider">
+            <p></p>
+        </div>
+
+
+        <!-- MENU -->
+
+        <section id="section__menu">
+            <h2>Nuestros Favoritos</h2>
+
+            <div class="productos-container">
+
+                <div class="producto">
+                    <h3>Latte</h3>
+                    <img src="./assets/carta-menu/lattte.jpg" alt="latte">
+                    <p>$600</p>
+                    <button class="btn__add">Añadir</button>
+                </div>
+
+                <div class="producto">
+                    <h3>Frapuccino</h3>
+                    <img src="./assets/carta-menu/frapu.jpg" alt="frapuccino">
+                    <p>$700</p>
+                    <button class="btn__add">Añadir</button>
+                </div>
+
+                <div class="producto">
+                    <h3>Limonada</h3>
+                    <img src="./assets/carta-menu/limonada.jpg" alt="limonada">
+                    <p>$500</p>
+                    <button class="btn__add">Añadir</button>
+                </div>
+
+                <div class="producto">
+                    <h3>Smoothies</h3>
+                    <img src="./assets/carta-menu/smoothies-pineapple-with-lime.jpg" alt="smoothie">
+                    <p>$900</p>
+                    <button class="btn__add">Añadir</button>
+                </div>
+
+                <div class="producto">
+                    <h3>Chía Pudding</h3>
+                    <img src="./assets/carta-menu/chia-pudding-vegan-recipe.jpg" alt="chia">
+                    <p>$700</p>
+                    <button class="btn__add">Añadir</button>
+                </div>
+
+                <div class="producto">
+                    <h3>Tostados</h3>
+                    <img src="./assets/carta-menu/tostado.jpg" alt="tostado">
+                    <p>$1000</p>
+                    <button class="btn__add">Añadir</button>
+                </div>
+
+                <div class="producto">
+                    <h3>Cheesecake</h3>
+                    <img src="./assets/carta-menu/cheesecake.jpg" alt="cheesecake">
+                    <p>$1200</p>
+                    <button class="btn__add">Añadir</button>
+                </div>
+
+                <div class="producto">
+                    <h3>Avocado Toast</h3>
+                    <img src="./assets/carta-menu/avocado t.jpg" alt="avo toast">
+                    <p>$1100</p>
+                    <button class="btn__add">Añadir</button>
+                </div>
+                
+            </div>
+            
+        </section>
+
+        <div class="container_divider">
+            <p></p>
+        </div>
+
+        <!-- ADOPCIONES -->
+
+        <section id="section__adopciones">
+
+            <h2>Nuestros Michis</h2>
+
+            <p>
+                Te presentamos nuestros gatitos rescatados!
+            </p>
+
+            <p>
+                Por favor, en tu visita, no debes alimentarlos, levantarlos o molestarlos mientras descansan. Por supuesto, puedes jugar con ellos, acariciarlos y disfrutar de su compañía!
+            </p>
+
+            <div class="container__michis">
+
+                <div class="card">
+                        <img src="./assets/cats/chimi y churri.jpg" alt="Chimi&Churri">                          
+                        <div class="hover">
+                            <h3>Chimi & Churri</h3>
+                            <p></p>
+                        </div>
+                </div>
+
+                <div class="card">
+                        <img src="./assets/cats/filipinas.jpeg" alt="Filipinas">                     
+                        <div class="hover">
+                            <h3>Filipinas</h3>
+                            <p></p>
+                        </div>
+                </div>
+
+                <div class="card">
+                        <img src="./assets/cats/alfa.jpg" alt="Alfi">                     
+                        <div class="hover">
+                            <h3>Alfi</h3>
+                            <p></p>
+                        </div>
+                </div>
+
+                <div class="card">
+                        <img src="./assets/cats/chimuelo.jpg" alt="Chimuelo">                     
+                        <div class="hover">
+                            <h3>Chimuelo</h3>
+                            <p></p>
+                        </div>
+                </div>
+
+                <div class="card">
+                        <img src="./assets/cats/tina.jpg" alt="Tina">                     
+                        <div class="hover">
+                            <h3>Tina</h3>
+                            <p></p>
+                        </div>
+                </div>
+
+                <div class="card">
+                        <img src="./assets/cats/umi.jpg" alt="Umi">                     
+                        <div class="hover">
+                            <h3>Umi</h3>
+                            <p></p>
+                        </div>
+                </div>
+
+            </div>
+
+        </section>   
+    
+        <!-- LOCATION -->
+
+        <section id="section__location">
+
+            <h2>Ubicación</h2>
+
+            <div class="card__informacion">
+
+                <div class="info-item">
+                    <h4>¿Dónde encontranos?</h4>
+                    <p>calle VíaViva 1234</p>
+                </div>                       
+
+                <div class="info-item">
+                    <h4>Dirección</h4>
+                    <p>(011) 5056 8125</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>Horarios de Atención</h4>
+                    <p>Lunes a Viernes de 10.00 a 19.00 Hs.</p>
+                    <p>Sabados de 10.00 a 20.30 Hs.</p>
+                </div>
+    
+            </div>
+                        
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d290.42824751863094!2d-58.450262609396546!3d-34.558099118636214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5d3ea07df93%3A0x947b5150d5a5bda4!2sBarrio%20Chino%2C%20CABA!5e0!3m2!1ses!2sar!4v1674488271226!5m2!1ses!2sar" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </section>
+    
+        <section class="section__formulario">
+
+            <h2>Contacto</h2>
+
+            <div class="contenedor__form">
+
+                <img src="./assets/cats/cat3.png">
+
+            
+                <form action="#">
+
+                    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" class="campo__item campo__text">
+
+                    <input type="tel" name="phone" id="phone" placeholder="Ingrese un telefono" class="campo__item campo__text">
+
+                    <input type="email" id="email" name="email" placeholder="Ingrese un email" class="campo__item campo__text">
+
+                    <textarea class="mensaje" id="mensaje" name="mensaje" placeholder="Dejenos su mensaje" class="campo__item campo__text"></textarea>
+
+                    <button type="submit" class="campo__text">Enviar</button>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+        
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer__items">
+
+            <div class="footer__redes-sociales">
+                <h3>Nuestras Redes</h3>
+                <div class="redes-sociales-iconos">
+                    <i class="fa-brands fa-twitter fa-lg"></i>
+                    <i class="fa-brands fa-instagram fa-lg"></i>
+                    <i class="fa-brands fa-facebook fa-lg"></i>   
+                </div>
+            </div>
+
+            <div class="footer__medios-pago">
+                <h3>Medios de Pago</h3>
+                <img class="footer__medios-pago-img" src="./assets/medios de pago/pago-seguro.png">           
+            </div>
+        </div>
+
+        <p><i class="fa-regular fa-copyright i-top"></i>2023. Todos los derechos reservados</p><span>COFFE & CATS</span>
+
+            
+        <a class="top" href="#">
+            <i class="fa-solid fa-arrow-up fa-sm"></i>            
+        </a>
+               
+    </footer>
+
+
+
+</body>
+
+</html>

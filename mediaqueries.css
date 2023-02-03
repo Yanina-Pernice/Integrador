@@ -1,0 +1,202 @@
+/* TABLET */
+
+@media (max-width: 992px){
+
+    .navbar{
+        gap: 10px;
+    }
+
+    .cart-label{
+        height: 35px;
+        margin-right: 0rem;
+        margin-top: 4px;
+    }
+
+    .navbar__list{
+        position: absolute;
+        top: 95px;
+        left: 55%;
+        width: 45%;
+        flex-direction: column;
+        background-color: #ead1b9;
+        border: 2px solid lightcoral;
+        border-top: 0px;
+        border-radius: 0px 0px 15px 15px;
+        align-items: flex-start; 
+        z-index: 2; 
+        display: none;   
+    }
+
+    .navbar-list a{
+        font-size: 18px;
+    }
+
+    /* MOSTRAR ICONO MENU */
+
+    .menu-label{
+        display: flex;
+        order: 2;
+        cursor: pointer;
+    }
+
+    .menu-img{
+        height: 8vh;
+        width: 8vw;
+    }
+
+    #menu-toggle:checked + 
+    .navbar__list{
+        display: flex;
+    }
+
+    .fa-solid{
+        font-size: 1.5rem;
+    }
+
+    .hero__img{
+        display: none;
+    }
+
+    .section__hero-info {
+        width: 85vw;
+    }
+
+    .section__hero-info h1{
+        font-size: 2rem;
+    }
+
+    .producto {
+        height: 45vh;
+        width: 40vw;
+    }
+
+    .producto img {
+        width: fit-content;
+        height: 30vh;
+    }
+
+    .producto p{
+        font-size: 1.2rem;
+    }
+
+    .btn__add{
+        height:3vh;
+    }
+
+    #section__location{
+        padding: 5vw;
+        gap:2px;
+    }
+
+    .campo__item, .mensaje {
+        width: 35vw;
+    }
+
+    .card,
+    .card img {
+        height: 30vh;
+        width: 40vw;
+    }
+
+    iframe{
+        height: 40vh;
+        width: 50vw;
+    }
+
+    .contenedor__form img, form {
+        height: 30vh;
+    }
+
+    .footer__medios-pago-img {
+        height: 6vh;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 568px){
+    
+    #header img{
+        height:50%;
+    }
+
+    .cart-label{
+        height: 35px;
+        margin-right: 0rem;
+        margin-top: 4px;
+    }
+
+    .navbar__list{
+        top: 80px;
+        left: 55%;
+        width: 45%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section__hero-info {
+        width: 100vw;
+    }
+
+    .section__hero-info p,
+    #section__nosotros p{
+        text-align: justify;
+    }
+
+    .producto{
+        height: 50vh;
+        width: 70vw;
+    }
+
+    .btn__add{
+        width: 25vw;
+        height: 4vh;
+    }
+
+    .card, .card img {
+        height: 30vh;
+        width: 80vw;
+    }
+
+    .card__informacion{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    iframe{
+        width: 80vw;
+    }
+
+    .contenedor__form img{
+        display: none;
+
+    }
+
+    .form {
+        width:50vw;
+        height: 20vh;
+    }
+
+    .campo__item, .mensaje {
+        width: 70vw;
+    }
+
+    button {
+        height: 7vh;
+        width: 18vw;
+    }
+
+    .footer__items {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+
+
+
