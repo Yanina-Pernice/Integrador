@@ -2,6 +2,10 @@
 
 @media (max-width: 992px){
 
+    .logo{
+        height:8vh;
+    }
+
     .navbar{
         gap: 10px;
     }
@@ -14,7 +18,7 @@
 
     .navbar__list{
         position: absolute;
-        top: 95px;
+        top: 12vh;
         left: 55%;
         width: 45%;
         flex-direction: column;
@@ -49,8 +53,10 @@
         display: flex;
     }
 
-    .fa-solid{
-        font-size: 1.5rem;
+    .menu-icon,
+    .cart-icon{
+        font-size: 2rem;
+        padding: 1vw;
     }
 
     .hero__img{
@@ -80,16 +86,13 @@
     }
 
     .btn__add{
-        height:3vh;
+        height:2rem;
+        /* width:; */
     }
 
     #section__location{
         padding: 5vw;
         gap:2px;
-    }
-
-    .campo__item, .mensaje {
-        width: 35vw;
     }
 
     .card,
@@ -103,12 +106,21 @@
         width: 50vw;
     }
 
-    .contenedor__form img, form {
-        height: 30vh;
+    .img-form{
+        height: 40vh;
     }
 
-    .footer__medios-pago-img {
-        height: 6vh;
+    .campo__item, .mensaje {
+        width: 40vw;
+    }
+    
+    .form__button {
+        width: 25vw;
+        font-size: 1rem;
+    }
+
+    .footer__medios-pago-img{
+        height: 8vh;
     }
 
 }
@@ -117,9 +129,22 @@
 /* MOBILE */
 
 @media (max-width: 568px){
+
+    .logo{
+        height:10vh;
+    }
     
     #header img{
-        height:50%;
+        height:100%;
+    } 
+
+    .menu-icon{
+        font-size: 1.75rem;
+        margin-right: 8vw;
+    }
+
+    .cart-icon{
+        font-size: 1.75rem;
     }
 
     .cart-label{
@@ -129,9 +154,9 @@
     }
 
     .navbar__list{
-        top: 80px;
-        left: 55%;
-        width: 45%;
+        top: 12vh;
+        left: 30%;
+        width: 69%;
         justify-content: center;
         align-items: center;
     }
@@ -140,30 +165,55 @@
         width: 100vw;
     }
 
-    .section__hero-info p,
+    .section__hero-info h1 {
+        font-size: 42px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .section__hero-info p{
+        width: 100%;
+        line-height: 30px;
+        padding: 10px;
+    }
+
     #section__nosotros p{
-        text-align: justify;
+        text-align: center;
+        line-height: 30px;
+        padding: 10px;
+
     }
 
     .producto{
-        height: 50vh;
-        width: 70vw;
+        height: fit-content;
+        width: 80vw;
+        padding: 1vw;
+    }
+
+    .producto h3{
+        font-size: 1.5rem;
+    }
+
+    .producto img {
+        width: fit-content;
+        height: 40vh;
     }
 
     .btn__add{
         width: 25vw;
-        height: 4vh;
+        height:6vh;
+        margin-bottom: 3vh;
+        text-align: center;
+    }
+
+    #section__adopciones p{
+        line-height: 30px;
+        padding: 10px;
     }
 
     .card, .card img {
         height: 30vh;
         width: 80vw;
-    }
-
-    .card__informacion{
-        text-align: center;
-        justify-content: center;
-        align-items: center;
     }
 
     iframe{
@@ -172,21 +222,21 @@
 
     .contenedor__form img{
         display: none;
-
     }
 
     .form {
         width:50vw;
-        height: 20vh;
     }
 
-    .campo__item, .mensaje {
+    .campo__item, 
+    .mensaje {
         width: 70vw;
     }
 
-    button {
-        height: 7vh;
-        width: 18vw;
+    .campo__text, .mensaje {
+        margin: 0.5vw;
+        padding: 3vw;
+        font-size: .75rem;
     }
 
     .footer__items {
@@ -195,8 +245,39 @@
         align-items: center;
     }
 
+    .footer__medios-pago-img {
+        height: 20vh;
+        width: fit-content;
+    }
+
+
+    /* BUTTON UP */
+
+    .top {
+        width: 9vw;
+        height: 9vw;
+    }
+
+    /* MODIFICAR CARRITO PARA CELULAR */
+
+    .cart{
+        left:0;
+        width:100%;
+        border: none;
+    }
+
+    /* .cart-item{
+        flex-wrap: wrap;
+    } */
+
+    .cart-total p,
+    .cart-total span{
+        font-size: 18px;
+    }
+
+
+
+
 }
-
-
 
 

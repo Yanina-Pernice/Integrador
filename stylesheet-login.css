@@ -6,8 +6,6 @@
     box-sizing: border-box;
     background-color: #fffffe;
     font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    /* border: 1px solid blue; */
 }
 
 .login__container{
@@ -21,6 +19,18 @@
     background-repeat: no-repeat;
     background-size:cover;
     font-family: 'Poppins', sans-serif;
+}
+
+.contenedor__form{
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    opacity: 0.8;
+    padding: 4vw;
+}
+
+h2{
+    text-align: center;
 }
 
 h2,
@@ -45,8 +55,8 @@ label{
     font-size: 12px;
 }
 
-.username,
-.password,
+.username__login,
+.password__login,
 .btn__login {
     width: 100%;
     padding: 12px 20px;
@@ -54,18 +64,56 @@ label{
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
-
 }
 
 .btn__login {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 10vw;
     font-weight: bolder;
+    text-decoration: none;
+    border: none;
+    color:#fffffe;
+    background-color:crimson;
+    text-transform: uppercase;
 }
 
 a:nth-of-type(1){
     font-size: 12px;
     display: flex;
     align-items: flex-end;
+}
+
+a:nth-of-type(3){
+    font-size: 14px;
+}
+
+/* MEDIAQUERIES */
+
+/* TABLET */
+@media (max-width: 992px){
+    .btn__login {
+        width: 20vw;
+        font-size: 14px;
+    }
+
+    a:nth-of-type(2){
+        font-size: 16px;
+   }
+}
+
+/* MOBILE PHONE */
+
+@media (max-width: 568px){
+    .contenedor__form{
+        height: 370px;
+        width: 280px;
+    }
+
+    .btn__login {
+        width: 40vw;
+    }
+   
+
 }

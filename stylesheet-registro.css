@@ -6,8 +6,6 @@
     box-sizing: border-box;
     background-color: #fffffe;
     font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    /* border: 1px solid blue; */
 }
 
 .registro__container{
@@ -16,10 +14,23 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
     background-image: url(./assets/fondos/6591788.jpg);
     background-repeat: no-repeat;
     background-size:cover;
     font-family: 'Poppins', sans-serif;
+}
+
+.contenedor__form{
+    height: 500px;
+    width: 400px;
+    border-radius: 10px;
+    opacity: 0.8;
+    padding: 4vw;
+}
+
+h2{
+    text-align: center;
 }
 
 h2,
@@ -39,6 +50,7 @@ form{
 label{
     display: flex;
     align-items: center;
+    text-align: center;
     gap:10px;
     background: none;
     font-size: 12px;
@@ -49,7 +61,7 @@ label{
 .correo__registro,
 .password__registro,
 .btn__registro{
-    width: 85%;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -62,6 +74,45 @@ label{
     align-items: center;
     justify-content: center;
     font-weight: bolder;
+    color:#fffffe;
+    background: rgb(241, 31, 83);
+    width: 15vw;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+
+}
+
+/* MEDIAQUERIES */
+
+/* TABLET */
+@media (max-width: 992px){
+    .btn__registro {
+        width: 20vw;
+        font-size: 14px;
+    }
+}
+
+/* MOBILE PHONE */
+
+@media (max-width: 568px){
+    .contenedor__form{
+        height: 420px;
+        width: 280px;
+    }
+
+    .btn__registro {
+        width: 45vw;
+        font-size: 12px;
+    }
+
+    a:nth-of-type(2){
+        font-size: 14px;
+    }
+   
+
 }
 
 

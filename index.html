@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./mediaqueries.css">
+    <link rel="stylesheet" href="./animaciones.css">
     <title>Coffe and Cats</title>
 </head>
 
@@ -17,29 +18,134 @@
 
     <header id="header">
 
-        <img src="./assets/logo/19.png" alt="logo" class="logo">
+        <img src="./assets/logo/2.1.png" alt="logo" class="logo">
 
         <nav class="navbar">
             <!-- MENU HAMBURGUESA -->
             <label for="menu-toggle" class="menu-label">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars menu-icon"></i>
             </label>
 
             <input type="checkbox" id="menu-toggle">
 
             <ul class="navbar__list">
-                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#section__hero">Inicio</a></li>
                 <li><a href="#section__nosotros">Nosotros</a></li>
                 <li><a href="#section__menu">Menú</a></li>
                 <li><a href="#section__adopciones">Adopciones</a></li>
-                <li><a href="#section__location">Dónde nos encontramos</a></li>
+                <li><a href="#section__location">Dónde encontrarnos</a></li>
                 <li><a target="_self" href="login.html" target="__blank">Ingresar</a></li>
                 <li><a target="_self" href="registro.html" target="__blank">Registrarse</a></li>
             </ul>
 
-            <label for="cart-toggle" class="cart-label cart">
-                <i class="fa-solid fa-cart-shopping"></i>
+            <!-- TRAER CARRITO -->
+
+            <label for="cart-toggle" class="cart-label">
+                <i class="fa-solid fa-cart-shopping cart-icon"></i>
             </label>
+
+            <input type="checkbox" id="cart-toggle">
+
+            <!-- MAQUETADO DE CARRITO-->
+            <div class="cart">
+
+                <h3>Tu Carrito</h3>
+
+                <div class="cart-item">
+                    <img class="cart-img" src="./assets/carta-menu/lattte.jpg" alt="latte">                    
+
+                    <div class="item-info">
+                        <h4 class="item-title">Latte</h4>
+                        <p class="item-bid">Precio</p>
+                        <span class="item-price">$600</span>
+                    </div>
+
+                    <div class="item-handler">
+                        <span class="quantity-handler down">-</span>
+                        <span class="item-quantity">1</span>
+                        <span class="quantity-handler up">+</span>
+                    </div>
+
+                </div>
+
+                <div class="cart-item">
+                    <img class="cart-img" src="./assets/carta-menu/frapu.jpg" alt="frapuchino">                    
+
+                    <div class="item-info">
+                        <h4 class="item-title">Frappucino</h4>
+                        <p class="item-bid">Precio</p>
+                        <span class="item-price">$700</span>
+                    </div>
+
+                    <div class="item-handler">
+                        <span class="quantity-handler down">-</span>
+                        <span class="item-quantity">1</span>
+                        <span class="quantity-handler up">+</span>
+                    </div>
+
+                </div>
+
+                <div class="cart-item">
+                    <img class="cart-img" src="./assets/carta-menu/smoothies-pineapple-with-lime.jpg" alt="smoothie">                    
+    
+                    <div class="item-info">
+                        <h4 class="item-title">Smoothies</h4>
+                        <p class="item-bid">Precio</p>
+                        <span class="item-price">$900</span>
+                    </div>
+    
+                    <div class="item-handler">
+                        <span class="quantity-handler down">-</span>
+                        <span class="item-quantity">1</span>
+                        <span class="quantity-handler up">+</span>
+                    </div>
+                </div>
+    
+                <div class="cart-item">
+                    <img class="cart-img" src="./assets/carta-menu/tostado.jpg" alt="tostado">                    
+    
+                    <div class="item-info">
+                        <h4 class="item-title">Tostados</h4>
+                        <p class="item-bid">Precio</p>
+                        <span class="item-price">$1000</span>
+                    </div>
+    
+                    <div class="item-handler">
+                        <span class="quantity-handler down">-</span>
+                        <span class="item-quantity">1</span>
+                        <span class="quantity-handler up">+</span>
+                    </div>
+                </div>
+
+                <div class="cart-item">
+                    <img class="cart-img" src="./assets/carta-menu/avocado t.jpg" alt="avocado toast">                    
+            
+                    <div class="item-info">
+                        <h4 class="item-title">AvoToast</h4>
+                        <p class="item-bid">Precio</p>
+                        <span class="item-price">$1100</span>
+                    </div>
+            
+                    <div class="item-handler">
+                        <span class="quantity-handler down">-</span>
+                        <span class="item-quantity">1</span>
+                        <span class="quantity-handler up">+</span>
+                    </div>
+                        
+                </div>
+
+                <span class="divider"></span>
+
+                <div class="cart-total">
+                    <p>Total:</p>
+                    <span>$4300</span>
+                </div>
+
+                <button class="cart-btn">Comprar</button>
+
+            </div>
+
+            <!-- FIN DEL CARRITO -->
 
             <div class="overlay"></div> 
 
@@ -49,9 +155,9 @@
 
     <main id="main">
 
-        <!-- PORTADA -->
+        <!-- SECTION PORTADA -->
 
-        <section class="section__hero">
+        <section id="section__hero">
 
             <div class="section__hero-info">
                 <h1>CELEBRAMOS EL AMOR POR EL CAFÉ Y LOS GATITOS</h1>
@@ -63,15 +169,16 @@
                 </p>
                 <p>
                     Ofrecemos una selección de cafés de alta calidad y opciones de pastelería plant based. Además, nuestros
-                    gatos son todos rescatados y están disponibles para adopción. <span>¡Te esperamos!</span>
+                    gatos son todos rescatados y están disponibles para adopción. 
+                    <span>¡Te esperamos!</span>
                 </p>
             </div>
 
-            <img class="hero__img" src="./assets/1-removebg-preview.png" alt="c&c-img">
+            <img class="hero__img" src="./assets/coffe&cats.png">
 
         </section>
     
-        <!-- NOSOTROS -->
+        <!-- SECTION NOSOTROS -->
 
         <section id="section__nosotros">
 
@@ -93,9 +200,7 @@
 
         </section>
 
-        <div class="container_divider">
-            <p></p>
-        </div>
+        <div class="container_divider"></div>
 
 
         <!-- MENU -->
@@ -166,10 +271,9 @@
         </section>
 
         <div class="container_divider">
-            <p></p>
         </div>
 
-        <!-- ADOPCIONES -->
+        <!-- SECTION ADOPCIONES -->
 
         <section id="section__adopciones">
 
@@ -189,15 +293,13 @@
                         <img src="./assets/cats/chimi y churri.jpg" alt="Chimi&Churri">                          
                         <div class="hover">
                             <h3>Chimi & Churri</h3>
-                            <p></p>
                         </div>
                 </div>
 
                 <div class="card">
                         <img src="./assets/cats/filipinas.jpeg" alt="Filipinas">                     
                         <div class="hover">
-                            <h3>Filipinas</h3>
-                            <p></p>
+                            <h3>Filipina</h3>
                         </div>
                 </div>
 
@@ -205,7 +307,6 @@
                         <img src="./assets/cats/alfa.jpg" alt="Alfi">                     
                         <div class="hover">
                             <h3>Alfi</h3>
-                            <p></p>
                         </div>
                 </div>
 
@@ -213,7 +314,6 @@
                         <img src="./assets/cats/chimuelo.jpg" alt="Chimuelo">                     
                         <div class="hover">
                             <h3>Chimuelo</h3>
-                            <p></p>
                         </div>
                 </div>
 
@@ -221,7 +321,6 @@
                         <img src="./assets/cats/tina.jpg" alt="Tina">                     
                         <div class="hover">
                             <h3>Tina</h3>
-                            <p></p>
                         </div>
                 </div>
 
@@ -229,7 +328,6 @@
                         <img src="./assets/cats/umi.jpg" alt="Umi">                     
                         <div class="hover">
                             <h3>Umi</h3>
-                            <p></p>
                         </div>
                 </div>
 
@@ -237,7 +335,7 @@
 
         </section>   
     
-        <!-- LOCATION -->
+        <!-- SECTION LOCATION -->
 
         <section id="section__location">
 
@@ -246,12 +344,12 @@
             <div class="card__informacion">
 
                 <div class="info-item">
-                    <h4>¿Dónde encontranos?</h4>
+                    <h4>¿Dónde encontrarnos?</h4>
                     <p>calle VíaViva 1234</p>
                 </div>                       
 
                 <div class="info-item">
-                    <h4>Dirección</h4>
+                    <h4>Teléfono</h4>
                     <p>(011) 5056 8125</p>
                 </div>
 
@@ -266,6 +364,8 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d290.42824751863094!2d-58.450262609396546!3d-34.558099118636214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5d3ea07df93%3A0x947b5150d5a5bda4!2sBarrio%20Chino%2C%20CABA!5e0!3m2!1ses!2sar!4v1674488271226!5m2!1ses!2sar" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </section>
+
+        <!-- SECTION FORMULARIO -->
     
         <section class="section__formulario">
 
@@ -273,9 +373,8 @@
 
             <div class="contenedor__form">
 
-                <img src="./assets/cats/cat3.png">
+                <img class="img-form" src="./assets/cats/cat3.png">
 
-            
                 <form action="#">
 
                     <input type="text" id="name" name="name" placeholder="Ingrese su nombre" class="campo__item campo__text">
@@ -286,7 +385,7 @@
 
                     <textarea class="mensaje" id="mensaje" name="mensaje" placeholder="Dejenos su mensaje" class="campo__item campo__text"></textarea>
 
-                    <button type="submit" class="campo__text">Enviar</button>
+                    <button type="submit" class="form__button">Enviar</button>
 
                 </form>
             </div>
@@ -311,7 +410,7 @@
 
             <div class="footer__medios-pago">
                 <h3>Medios de Pago</h3>
-                <img class="footer__medios-pago-img" src="./assets/medios de pago/pago-seguro.png">           
+                <img class="footer__medios-pago-img" src="./assets/medios de pago/Metodos-de-Pago3.png">           
             </div>
         </div>
 
