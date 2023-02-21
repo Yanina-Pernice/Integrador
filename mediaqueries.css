@@ -19,7 +19,7 @@
     .navbar__list{
         position: absolute;
         top: 12vh;
-        left: 55%;
+        left: 65%;
         width: 45%;
         flex-direction: column;
         background-color: #ead1b9;
@@ -55,7 +55,7 @@
 
     .menu-icon,
     .cart-icon{
-        font-size: 2rem;
+        font-size: 1.25rem;
         padding: 1vw;
     }
 
@@ -72,8 +72,8 @@
     }
 
     .producto {
-        height: 45vh;
-        width: 40vw;
+        height: 60vh;
+        width: 25vw;
     }
 
     .producto img {
@@ -87,7 +87,6 @@
 
     .btn__add{
         height:2rem;
-        /* width:; */
     }
 
     #section__location{
@@ -115,12 +114,13 @@
     }
     
     .form__button {
-        width: 25vw;
+        width: 10vw;
+        height: 7vh;
         font-size: 1rem;
     }
 
     .footer__medios-pago-img{
-        height: 8vh;
+        height: 25vh;
     }
 
 }
@@ -139,12 +139,12 @@
     } 
 
     .menu-icon{
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         margin-right: 8vw;
     }
 
     .cart-icon{
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     .cart-label{
@@ -231,6 +231,10 @@
     .campo__item, 
     .mensaje {
         width: 70vw;
+    }
+
+    .form__button {
+        width: 20vw;
     }
 
     .campo__text, .mensaje {

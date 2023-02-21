@@ -56,8 +56,7 @@ label{
 }
 
 .username__login,
-.password__login,
-.btn__login {
+.password__login{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -67,16 +66,16 @@ label{
 }
 
 .btn__login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     width: 10vw;
+    padding: 12px 20px;
     font-weight: bolder;
     text-decoration: none;
-    border: none;
-    color:#fffffe;
-    background-color:crimson;
+    text-align: center;
     text-transform: uppercase;
+    border-radius: 4px;
+    color: #fffffe;
+    background: #c9184a;
 }
 
 a:nth-of-type(1){
@@ -114,6 +113,31 @@ a:nth-of-type(3){
     .btn__login {
         width: 40vw;
     }
-   
 
+}
+
+/* ANIMACIONES */
+
+.btn__login{
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn__login::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(252, 70, 100);
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+
+}
+
+.btn__login:hover::before{
+    transform: translateX(0);
 }

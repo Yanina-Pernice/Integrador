@@ -13,7 +13,7 @@ html{
     left: 0;
     height: 100vh;
     width: 100%;
-    z-index: index 1;
+    z-index: 1;
     /* EFECTO GLASSMORPHISMO */
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -126,5 +126,55 @@ html{
     animation-delay: 0.2s;
 }
 
+/* BOTONES SECTION MENU */
+
+.btn__add{
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease; 
+    z-index: 1;    
+}
+
+.btn__add:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left:50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    border-radius:8px;
+    background-color: #d16792;
+    z-index: -1;
+    transition: 0.5s all ease;
+}
+
+.btn__add:hover, .btn__add:focus{
+    color: #f2f2f2;
+}
+
+.btn__add:hover:before, .btn__add:focus:before{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.btn__add:active{
+    transform: scale(0.9);
+}
+
+
+/* BOTON FORMULARIO */
+
+.form__button{
+    transition: .3s;
+}
+
+.form__button:hover{
+    background-color: #3b82f6;
+    color:#fffffe;
+    box-shadow: 0 0 0 5px #3b83f65f;
+}
 
 
