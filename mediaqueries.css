@@ -55,7 +55,7 @@
 
     .menu-icon,
     .cart-icon{
-        font-size: 1.25rem;
+        font-size: 2.25rem;
         padding: 1vw;
     }
 
@@ -72,8 +72,8 @@
     }
 
     .producto {
-        height: 60vh;
-        width: 25vw;
+        height: 45vh;
+        width: 35vw;
     }
 
     .producto img {
@@ -115,12 +115,12 @@
     
     .form__button {
         width: 10vw;
-        height: 7vh;
+        height: 4vh;
         font-size: 1rem;
     }
 
     .footer__medios-pago-img{
-        height: 25vh;
+        height: 12vh;
     }
 
 }
@@ -235,6 +235,7 @@
 
     .form__button {
         width: 20vw;
+        height: fit-content;
     }
 
     .campo__text, .mensaje {

@@ -399,7 +399,7 @@ iframe{
 }
 
 .img-form{
-    height: 50vh;
+    height: 45vh;
 }
 
 form{
@@ -645,7 +645,7 @@ form{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 8vh;
+    height: 5vh;
     font-size: 18px;
     font-weight: bolder;
     cursor: pointer;

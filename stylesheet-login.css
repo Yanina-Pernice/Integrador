@@ -23,7 +23,7 @@
 
 .contenedor__form{
     height: 400px;
-    width: 300px;
+    width: 400px;
     border-radius: 10px;
     opacity: 0.8;
     padding: 4vw;
@@ -67,7 +67,7 @@ label{
 
 .btn__login {
     display: inline-block;
-    width: 10vw;
+    width: 15vw;
     padding: 12px 20px;
     font-weight: bolder;
     text-decoration: none;
