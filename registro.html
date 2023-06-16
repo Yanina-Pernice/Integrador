@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./stylesheet-registro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Registrarse</title>
 </head>
+
 <body>
 
     <!-- NUEVA CUENTA -->
@@ -15,24 +17,39 @@
 
         <div class="contenedor__form">
 
+            <a href="index.html" class="btn__volver">
+                <i class="fa-sharp fa-solid fa-arrow-left fa-lg" id="icono" style="color: #083422;"></i>
+            </a>
+
             <h2>Nueva Cuenta</h2>
         
-            <form>
-    
-                <label for=username></label>
-                <input type="text" id="username" placeholder="Usuario" class="username__registro">
+            <form class="form__container" id="register-form">
+                <!-- Nombre -->
+                <div class="form__field">
+                    <input type="text" id="name" placeholder="Nombre" class= "form__input" autocomplete="off">
+                    <small></small>
+                </div>
+                <!-- Nombre -->
+                 
+                <!-- Email -->
+                <div class="form__field">
+                    <input type="email" id="email" placeholder="Correo electrónico" class= "form__input" autocomplete="off" >
+                    <small></small>
+                </div>
+                <!-- Email -->
+                
+                <!-- Password -->
+                <div class="form__field">
+                    <input type="password" id="password" placeholder="Contraseña" class= "form__input" autocomplete="off"> 
+                    <small></small> 
+                </div>
+                <!-- Password -->
 
-                <label for=correo></label>
-                <input type="mail" id="correo" placeholder="Correo electrónico" class="correo__registro">
-    
-                <label for=contraseña></label>
-                <input type="password" id="contraseña" placeholder="Contraseña" class="password__registro"> 
+                <input type="submit" class= "btn__registro" href= "index.html" value="Crear Cuenta"/>
 
-                <a class=btn__registro href="index.html">Crear cuenta</a>
-
-                <label for="checkbox">Acepto los Términos y Condiciones y las Políticas de Privacidad del sitio.    
-                <input type="checkbox" id="checkbox" checked>
-                </label> 
+                <p>Acepto los Términos y Condiciones y las Políticas de Privacidad del sitio.    
+                    <input type="checkbox" id="checkbox" checked>
+                </p> 
               
                 <a href="login.html" target="_self">¿Ya tienes cuenta? Iniciar sesión</a>
     
@@ -42,6 +59,10 @@
             
     </section>
 
+
+    <!-- SCRIPTS -->
+
+    <script src="./registro.js"></script>
 
     
 </body>

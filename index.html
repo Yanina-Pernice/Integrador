@@ -22,128 +22,65 @@
 
         <nav class="navbar">
             <!-- MENU HAMBURGUESA -->
-            <label for="menu-toggle" class="menu-label">
+            <div class="menu-label">
                 <i class="fa-solid fa-bars menu-icon"></i>
-            </label>
+            </div>
 
-            <input type="checkbox" id="menu-toggle">
+            <!-- <input type="checkbox" id="menu-toggle"> -->
 
             <ul class="navbar__list">
-                <li><a href="#section__hero">Inicio</a></li>
-                <li><a href="#section__nosotros">Nosotros</a></li>
-                <li><a href="#section__menu">Menú</a></li>
-                <li><a href="#section__adopciones">Adopciones</a></li>
-                <li><a href="#section__location">Dónde encontrarnos</a></li>
-                <li><a target="_self" href="login.html" target="__blank">Ingresar</a></li>
-                <li><a target="_self" href="registro.html" target="__blank">Registrarse</a></li>
+                <li><a class="navbar-link" href="#section__hero">Inicio</a></li>
+                <li><a class="navbar-link" href="#section__nosotros">Nosotros</a></li>
+                <li><a class="navbar-link" href="#section__menu">Menú</a></li>
+                <li><a class="navbar-link" href="#section__adopciones">Adopciones</a></li>
+                <li><a class="navbar-link" href="#section__location">Dónde encontrarnos</a></li>
+                
+                <li><a class="navbar-link" target="_self" href="login.html" target="__blank">Ingresar</a></li>
+                <li><a class="navbar-link" target="_self" href="registro.html" target="__blank">Registrarse</a></li>
             </ul>
 
             <!-- TRAER CARRITO -->
 
-            <label for="cart-toggle" class="cart-label">
+            <div class="cart-label">
                 <i class="fa-solid fa-cart-shopping cart-icon"></i>
-            </label>
+            </div>
 
-            <input type="checkbox" id="cart-toggle">
+            <!-- <input type="checkbox" id="cart-toggle"> -->
 
             <!-- MAQUETADO DE CARRITO-->
             <div class="cart">
 
                 <h3>Tu Carrito</h3>
 
-                <div class="cart-item">
-                    <img class="cart-img" src="./assets/carta-menu/lattte.jpg" alt="latte">                    
-
-                    <div class="item-info">
-                        <h4 class="item-title">Latte</h4>
-                        <p class="item-bid">Precio</p>
-                        <span class="item-price">$600</span>
-                    </div>
-
-                    <div class="item-handler">
-                        <span class="quantity-handler down">-</span>
-                        <span class="item-quantity">1</span>
-                        <span class="quantity-handler up">+</span>
-                    </div>
-
-                </div>
-
-                <div class="cart-item">
-                    <img class="cart-img" src="./assets/carta-menu/frapu.jpg" alt="frapuchino">                    
-
-                    <div class="item-info">
-                        <h4 class="item-title">Frappucino</h4>
-                        <p class="item-bid">Precio</p>
-                        <span class="item-price">$700</span>
-                    </div>
-
-                    <div class="item-handler">
-                        <span class="quantity-handler down">-</span>
-                        <span class="item-quantity">1</span>
-                        <span class="quantity-handler up">+</span>
-                    </div>
-
-                </div>
-
-                <div class="cart-item">
-                    <img class="cart-img" src="./assets/carta-menu/smoothies-pineapple-with-lime.jpg" alt="smoothie">                    
-    
-                    <div class="item-info">
-                        <h4 class="item-title">Smoothies</h4>
-                        <p class="item-bid">Precio</p>
-                        <span class="item-price">$900</span>
-                    </div>
-    
-                    <div class="item-handler">
-                        <span class="quantity-handler down">-</span>
-                        <span class="item-quantity">1</span>
-                        <span class="quantity-handler up">+</span>
-                    </div>
-                </div>
-    
-                <div class="cart-item">
-                    <img class="cart-img" src="./assets/carta-menu/tostado.jpg" alt="tostado">                    
-    
-                    <div class="item-info">
-                        <h4 class="item-title">Tostados</h4>
-                        <p class="item-bid">Precio</p>
-                        <span class="item-price">$1000</span>
-                    </div>
-    
-                    <div class="item-handler">
-                        <span class="quantity-handler down">-</span>
-                        <span class="item-quantity">1</span>
-                        <span class="quantity-handler up">+</span>
-                    </div>
-                </div>
-
-                <div class="cart-item">
-                    <img class="cart-img" src="./assets/carta-menu/avocado t.jpg" alt="avocado toast">                    
-            
-                    <div class="item-info">
-                        <h4 class="item-title">AvoToast</h4>
-                        <p class="item-bid">Precio</p>
-                        <span class="item-price">$1100</span>
-                    </div>
-            
-                    <div class="item-handler">
-                        <span class="quantity-handler down">-</span>
-                        <span class="item-quantity">1</span>
-                        <span class="quantity-handler up">+</span>
-                    </div>
-                        
-                </div>
+                <div class="cart-container">
+                    <!-- <div class= ${name}>
+                        <img class="cart-img" src=${img} alt="latte">                    
+                
+                        <div class="item-info">
+                            <h4 class="item-title">Latte</h4>
+                            <p class="item-bid">Precio</p>
+                            <span class="item-price">${precio}</span>
+                        </div>
+                
+                        <div class="item-handler">
+                            <span class="quantity-handler down" data-id=${id}>-</span>
+                            <span class="item-quantity">${quantity}</span>
+                            <span class="quantity-handler up" data-id=${id}>+</span>
+                        </div>
+                    </div>-->
+                </div> 
 
                 <span class="divider"></span>
 
                 <div class="cart-total">
                     <p>Total:</p>
-                    <span>$4300</span>
+                    <span class="total"></span>
                 </div>
 
-                <button class="cart-btn">Comprar</button>
+                <button class="cart-btn disabled">Comprar</button>
+                <button class="btn-delete disabled">Vaciar carrito</button> 
 
-            </div>
+            </div> 
 
             <!-- FIN DEL CARRITO -->
 
@@ -203,75 +140,47 @@
         <div class="container_divider"></div>
 
 
-        <!-- MENU -->
+        <!-- SECTION MENU -->
 
         <section id="section__menu">
             <h2>Nuestros Favoritos</h2>
 
-            <div class="productos-container">
+            <div class="categories">
 
-                <div class="producto">
-                    <h3>Latte</h3>
-                    <img src="./assets/carta-menu/lattte.jpg" alt="latte">
-                    <p>$600</p>
-                    <button class="btn__add">Añadir</button>
-                </div>
+                <button class="category active">Todo</button>
+                <button class="category" data-category="bebidas">Bebidas</button>
+                <button class="category" data-category="sweets">Opciones Dulces</button>
+                <button class="category" data-category="salad">Opciones saladas</button>
 
-                <div class="producto">
-                    <h3>Frapuccino</h3>
-                    <img src="./assets/carta-menu/frapu.jpg" alt="frapuccino">
-                    <p>$700</p>
-                    <button class="btn__add">Añadir</button>
-                </div>
-
-                <div class="producto">
-                    <h3>Limonada</h3>
-                    <img src="./assets/carta-menu/limonada.jpg" alt="limonada">
-                    <p>$500</p>
-                    <button class="btn__add">Añadir</button>
-                </div>
-
-                <div class="producto">
-                    <h3>Smoothies</h3>
-                    <img src="./assets/carta-menu/smoothies-pineapple-with-lime.jpg" alt="smoothie">
-                    <p>$900</p>
-                    <button class="btn__add">Añadir</button>
-                </div>
-
-                <div class="producto">
-                    <h3>Chía Pudding</h3>
-                    <img src="./assets/carta-menu/chia-pudding-vegan-recipe.jpg" alt="chia">
-                    <p>$700</p>
-                    <button class="btn__add">Añadir</button>
-                </div>
-
-                <div class="producto">
-                    <h3>Tostados</h3>
-                    <img src="./assets/carta-menu/tostado.jpg" alt="tostado">
-                    <p>$1000</p>
-                    <button class="btn__add">Añadir</button>
-                </div>
-
-                <div class="producto">
-                    <h3>Cheesecake</h3>
-                    <img src="./assets/carta-menu/cheesecake.jpg" alt="cheesecake">
-                    <p>$1200</p>
-                    <button class="btn__add">Añadir</button>
-                </div>
-
-                <div class="producto">
-                    <h3>Avocado Toast</h3>
-                    <img src="./assets/carta-menu/avocado t.jpg" alt="avo toast">
-                    <p>$1100</p>
-                    <button class="btn__add">Añadir</button>
-                </div>
-                
             </div>
+
+            <!-- Las CARDS se renderizan por JS -->
+            <div class="productos-container">
+                <!-- <div class="producto">  
+                    <h3 class="item-name">${name}</h3>
+                 
+                    <div class="card-image">
+                        <img src=${img} alt=${name}>
+                    </div>
+                    <div class="card-price-and-button">
+                    <p>${precio}</p>
+                    <button class="btn__add"
+                    data-id="${id}"
+                    data-name="${name}"
+                    data-precio="${precio}"
+                    data-img="${img}">Añadir <i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </div> -->
+            </div>
+
+            <button class="btn-load">Ver más</button>
             
         </section>
 
+        <!-- DIVISION -->
         <div class="container_divider">
         </div>
+        <!-- DIVISION -->
 
         <!-- SECTION ADOPCIONES -->
 
@@ -422,6 +331,12 @@
         </a>
                
     </footer>
+
+    <div class="add-modal"></div>
+
+    <!-- scripts -->
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
 
 
 

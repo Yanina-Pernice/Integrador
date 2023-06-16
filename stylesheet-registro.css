@@ -8,6 +8,16 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.btn__volver{
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 5px 5px;
+    background-color: #dc3545;
+}
+
+
 .registro__container{
     display: flex;
     flex-direction: column;
@@ -22,11 +32,11 @@
 }
 
 .contenedor__form{
-    height: 500px;
+    /* height: 480px; */
     width: 400px;
     border-radius: 10px;
     opacity: 0.8;
-    padding: 4vw;
+    padding: 3vw;
 }
 
 h2{
@@ -41,37 +51,31 @@ a{
 form{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background: none;
     justify-content: center;
     align-items: center;
+    gap: 15px;
+    background: none;    
 }
 
-label{
+.form__field{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    gap:10px;
+    gap: 4px;
     background: none;
-    font-size: 12px;
-
+    font-size: 16px;
 }
 
-.username__registro,
-.correo__registro,
-.password__registro,
-.btn__registro{
-    width: 100%;
-    padding: 12px 10px;
-    margin: 8px 0;
-    box-sizing: border-box;
+.form__input{
+    padding: 15px;
     border: 2px solid #ccc;
     border-radius: 4px;
+    width: 300px;
 }
 
-.btn__registro {
-    display: inline-block;
-    font-weight: bolder;
+.btn__registro { 
     color:#fffffe;
     background: #c9184a;
     width: 15vw;
@@ -79,14 +83,57 @@ label{
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
+    font-weight: bolder;
     font-size: 14px;
+    padding: 12px 10px;
+    border-radius: 4px;
+    cursor: pointer;
 
 }
+
+p{
+    font-size: 12px;
+    text-align: center;
+}
+
+a:last-child:hover {
+    color: #961e28;
+    font-weight: bolder;
+}
+
+
+
+/* ERROR - SUCCESS */
+
+.form__field.error input {
+    border: 2px solid #dc3545;
+}
+  
+.form__field small {
+    color: #dc3545;
+    max-width: 350px;
+    text-align: center;
+    display: none;
+}
+  
+.form__field.success input {
+    border: 2px solid #28a745;
+}
+  
+#form__error {
+    color: #dc3545;
+    font-size: 1rem;
+    margin: 4px 0px;
+    max-width: 350px;
+    text-align: center;
+}
+
 
 /* MEDIAQUERIES */
 
 /* TABLET */
 @media (max-width: 992px){
+
     .btn__registro {
         width: 20vw;
         font-size: 14px;
@@ -97,7 +144,6 @@ label{
 
 @media (max-width: 568px){
     .contenedor__form{
-        height: 420px;
         width: 280px;
     }
 
@@ -107,12 +153,18 @@ label{
     }
 
     a:nth-of-type(2){
-        font-size: 14px;
+        font-size: 12px;
+    }
+
+    .fa-lg {
+        font-size: 1rem;
     }
    
 
+    .form__input{
+        width:220px;
+    }
 }
-
 
 /* ANIMACIONES */
 
@@ -139,6 +191,19 @@ label{
 .btn__registro:hover::before{
     transform: translateX(0);
 }
+
+
+/* BOTON VOLVER */
+
+#icono {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+      
+#icono:hover {
+    opacity: 0.5;
+}  
+
 
 
   

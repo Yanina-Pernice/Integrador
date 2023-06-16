@@ -7,13 +7,15 @@ html{
     scroll-padding-top: 12vh;
 }
 
+/*Para efecto de GLASSMORPHISMO cuando abrimos menú hamburguesa y carrito*/
+
 .overlay{
     position: absolute;
     top: 12vh;
     left: 0;
     height: 100vh;
     width: 100%;
-    z-index: 1;
+    z-index: 1; /* PARA QUE QUEDE POR ENCIMA DEL RESTO DE LAS COSAS*/
     /* EFECTO GLASSMORPHISMO */
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -23,13 +25,18 @@ html{
 
 }
 
-#menu-toggle:checked ~ .overlay,
-#cart-toggle:checked ~ .overlay{
+/* OPEN-MENU */
+.show-overlay {
     display: block;
 }
 
+/* #menu-toggle:checked ~ .overlay,
+#cart-toggle:checked ~ .overlay{
+    display: block;
+} */
 
-/* HOVER DE LOS ELEMENTOS NAVBAR */
+
+/* HOVER DE LOS ELEMENTOS "a" DEL NAVBAR */
 
 .navbar__list li{
     position: relative;
@@ -74,7 +81,15 @@ html{
 
 .cart-btn:hover{
     text-transform: uppercase;
-    background-color:indianred;
+    color:rgb(255, 255, 255);
+    transition: all .5s ease-in-out;
+}
+
+.btn-delete{
+    transition: all .5s ease-in-out;
+}
+
+.btn-delete:hover{
     color:rgb(255, 255, 255);
     transition: all .5s ease-in-out;
 }

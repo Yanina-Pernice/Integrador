@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./stylesheet-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Login</title>
 </head>
 <body>
@@ -15,31 +16,41 @@
 
         <div class="contenedor__form">
 
+            <a href="index.html" class="btn__volver">
+                <i class="fa-sharp fa-solid fa-arrow-left fa-lg" id="icono" style="color: #083422;"></i>
+            </a>
+
             <h2>Bienvenido</h2>
 
-            <form>
+            <form class="form__container" id="login__form">
 
-                <label for=username></label>
-                <input type="text" id="username" placeholder="Usuario" class="username__login">
-    
-                <label for=contraseña></label>
-                <input type="password" id="contraseña" placeholder="Contraseña" class="password__login">
+                <!-- EMAIL -->
+                <div class="form__field">
+                    <input type="email" id="email" placeholder="Correo electrónico" class="email__login" autocomplete="off"/>
+                </div>
+                <!-- EMAIL -->
+
+                <!-- PASSWORD -->
+                <div class="form__field">
+                    <input type="password" id="contraseña" placeholder="Contraseña"  class="password__login" autocomplete="off"/>
+                </div>
+                <!-- PASSWORD -->
+
+                <small id="form__error"></small>
+
                 <a href="#">Recuperar contraseña</a>
-    
-                <a class="btn__login btn__text" href="index.html">Acceder</a>
-              
+                
+                <input type="submit" class="btn__login" value="Iniciar Sesión"/>
+             
                 <a href="registro.html" target="_self">¿No tienes cuenta? Registrate</a>
-    
-    
+
             </form>
-
         </div>      
-
         
     </section>
 
-
-   
-    
+    <!-- SCRIPTS -->
+    <script src="./login.js"></script>  
 </body>
+
 </html>
