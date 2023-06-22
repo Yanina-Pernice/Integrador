@@ -3,30 +3,28 @@ const productosContainer = document.querySelector(".productos-container");
 const categoriesContainer = document.querySelector(".categories");
 const categoriesList = document.querySelectorAll(".category"); // Devuelve un HTML Collection
 const btnMostrarMas = document.querySelector(".btn-load");
-//
+// BOTONES DEL CARRITO Y DEL MENU Y OVERLAY
 const cartBtn = document.querySelector(".cart-label"); //clickeando el cart-label aparece el cart
 const cartMenu = document.querySelector(".cart");
 const menuBtn = document.querySelector(".menu-label"); // clickeando menu-label aparece el navbarlist
 const barsMenu = document.querySelector(".navbar__list");
 const overlay = document.querySelector(".overlay"); //fondo blureado
-
-// CARRITO
+// CARRITO - TOTAL CARRITO
 const productsCart = document.querySelector(".cart-container");
 const total = document.querySelector(".total");
-
 // MODAL MENSAJE
 const modal = document.querySelector(".add-modal");
-
 // BOTONES COMPRAR Y VACIAR CARRITO
 const buyBtn = document.querySelector(".cart-btn");
 const deleteBtn = document.querySelector(".btn-delete");
-
+// BURBUJA CARRITO
+const cartBubble = document.querySelector(".cart-bubble");
 
 // ---------  GUARDAR Y BUSCAR EL CART EN EL LOCAL STORAGE  ---------  //
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const saveCartToLocalStorage = () => {
-    localStorage.setItem("carrito", JSON.stringify(cart));
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 
@@ -42,8 +40,9 @@ const createProductTemplate = (product) => {
             <img src=${img} alt=${name}>
         </div>
         <div class="card-price-and-button">
-        <p>${precio}</p>
-        <button class="btn__add"
+        <p>$${precio}</p>
+        
+        <button class="btn-add"
         data-id="${id}"
         data-name="${name}"
         data-precio="${precio}"
@@ -54,55 +53,30 @@ const createProductTemplate = (product) => {
 };
 
 // ---------  RENDERIZO EL MENU  ---------  //
-const renderProducts = (productsList) => {
-    productosContainer.innerHTML += productsList.map(createProductTemplate).join("");
+const renderProducts = (listaProductos) => {
+    productosContainer.innerHTML += listaProductos.map(createProductTemplate).join("");
 };
 
-// ---------  BOTON MOSTRAR MÁS  ---------  //
+// ---------  MENU-BOTON MOSTRAR MÁS  ---------  //
 
-const isLastIndexOf = () => { 
-    return appState.currentProductsIndex === appState.limiteProducts - 1; // si retorna true es el último índice
+const esUltimoIndice = () => { 
+    return appState.indiceActualDeProductos === appState.limiteProducts - 1; // si retorna true es el último índice
 };
 
 const mostrarMasProductos = () => {
-    appState.currentProductsIndex += 1;
+    appState.indiceActualDeProductos += 1;
 
-    let { products, currentProductsIndex } = appState; // DESESTRUCTURO EL OBJETO APPSTATE
+    let { products, indiceActualDeProductos } = appState; // DESESTRUCTURO EL OBJETO APPSTATE
 
-    renderProducts(products[currentProductsIndex]);
+    renderProducts(products[indiceActualDeProductos]);
 
-    if(isLastIndexOf()) {
+    if(esUltimoIndice()) {
         btnMostrarMas.classList.add("hidden");
     }
-
-    //me traigo del array appState products y el current    
-    // let products = appState.products;
-
-    // let currentProductsIndex = appState.currentProductsIndex;
-
-    // let auxiliar = []; // Creo un array nuevo para guardar los productos que quiero mostrar.
-
-    // //recorro el array de 3 en 3
-    // for(i = 0; i <= currentProductsIndex; i++){
-
-    //     for(j = 0; j < products[i].length ; j++){ //recorro los productos dentro de cada array de 3
-
-    //         auxiliar.push(products[i][j])
-    //     }
-    // }
-
-    // renderProducts(auxiliar);
-
-    // if (isLastIndexOf()) {
-    //     btnMostrarMas.classList.add("hidden");
-    // }
 };
 
-
 // ---------  FILTROS  --------- //
-
 //Chequear que sea botón y no esté activo
-
 const isInactiveFilterBtn = (element) => {
     return (
         element.classList.contains("category") && !element.classList.contains("active")
@@ -126,7 +100,7 @@ const setButtonAsActive = (selectedCategory) => {
 };
 
 const setBtnMostrarMasVisibility = () => {
-    //si no hay en el appState un filtro activo (porque está ACTIVO el btn TODOS) llama al btn mostrar más y removele la clase hidden para mostrarlo
+    //si no hay filtro activo en el appState (porque está ACTIVO el btn TODOS) llama al btn mostrar más y le remueve la clase hidden para mostrarlo
     if (!appState.activeFilter) {
         btnMostrarMas.classList.remove("hidden");
         return;
@@ -139,32 +113,23 @@ const changeActiveFilter = (btn) => {
     appState.activeFilter = btn.dataset.category; // guardo la category en el appState
     setButtonAsActive(appState.activeFilter); // seteo el boton de la categoria seleccionada como activo
     setBtnMostrarMasVisibility();
-
 };
 
-// RENDERIZO PRODUCTOS FILTRADOS
+// ---------  RENDERIZO PRODUCTOS FILTRADOS  ---------  //
 const renderFilterProducts = () => {
-    //el array de todos los productos
+    //filtro el array de todos los productos
     const filterProducts = productsData.filter((product) => {
         return product.category === appState.activeFilter
     }); // deja pasar aquellos cuyo producto sea igual al que tengan el filtro activo
     renderProducts(filterProducts);
 };
 
-
-//desestructuro el target del evento y se lo paso a la función 
-// Recibe target que es el btn que fue seleccionado por el usuario
-
-//e.target const aux = e//////////////////////////
+// Recibe target (del evento desetructurado) que es el btn que fue seleccionado por el usuario
 const applyFilter = ({target}) => {
-    console.log(target)
-    console.log(target.value)
-    console.log(target.dataset.category)
-
     //Chequear que sea botón y no esté activo
     if (!isInactiveFilterBtn(target)) {
         return;
-    }
+    };
 
     //Cambiar el filtro a ACTIVO
     changeActiveFilter(target);
@@ -173,19 +138,17 @@ const applyFilter = ({target}) => {
     productosContainer.innerHTML = "";
     if (appState.activeFilter) {
         renderFilterProducts();
-        appState.currentProductsIndex = 0;
+        appState.indiceActualDeProductos = 0;
         return;
     }
     // Si NO hay filtro activo, renderizo 1er array
     renderProducts(appState.products[0]);    
 };
 
-
 //  ---------  TOGGLE DEL CARRITO  ---------  //
-
 const toggleCart = () => {
     cartMenu.classList.toggle("open-cart");
-    //si menu hamburguesa está abierto:
+    //si el menu hamburguesa está abierto:
     if (barsMenu.classList.contains("open-menu")) {
         barsMenu.classList.remove("open-menu");
         return;
@@ -195,7 +158,6 @@ const toggleCart = () => {
 };
 
 //  ---------   TOGGLE DEL MENU  ---------  //
-
 const toggleMenu = () => {
     barsMenu.classList.toggle("open-menu");
     //si el carrito está abierto:
@@ -234,17 +196,18 @@ const closeOnOverlayClick = () => {
 
 //  --------- LOGICA DEL CARRITO  ---------  //
 
+//  --------- SE CREA EL TEMPLATE DEL CARRITO  ---------  //
 const createCartProductTemplate = (cartProduct) => {
     const { id, name, img, precio, quantity } = cartProduct;
 
     return `
-    <div class= ${name}>
+    <div class= "cart-item">
         <img class="cart-img" src=${img} alt="latte">                    
 
         <div class="item-info">
-            <h4 class="item-title">Latte</h4>
+            <h4 class="item-title">${name}</h4>
             <p class="item-bid">Precio</p>
-            <span class="item-price">${precio}</span>
+            <span class="item-price">$ ${precio}</span>
         </div>
 
         <div class="item-handler">
@@ -256,55 +219,55 @@ const createCartProductTemplate = (cartProduct) => {
     `;
 };
 
-//RENDERIZO EL CARRITO
+//  ---------  RENDERIZO EL CARRITO  ---------  //
 const renderCart = () => {
     if(!carrito.length) {
         productsCart.innerHTML = `<p class="empty-msj">El carrito está vacío.</p>`;
         return;
     }
     productsCart.innerHTML = carrito.map(createCartProductTemplate).join("");
-
 };
 
-//FUNCION AUXILIAR REDUCE
+// FUNCION AUXILIAR REDUCE
 const getCartTotal = () => {
     return carrito.reduce((acumulador, valor) => {
         return acumulador + Number(valor.precio) * Number(valor.quantity) // sumale el resultado del actual.precio * cantidad = cant tot del producto
-    }, 0)
+    }, 0);
 };
 
-//MUESTRO CARRITO
-const showCartTotal = () => {
-    total.innerHTML = `${getCartTotal().toFixed(2)} pesos`;
+// MUESTRO CARRITO
+const mostrarTotalCarrito = () => {
+    total.innerHTML = `${getCartTotal()} pesos`;
 };
 
+// FUNCION AUXILIAR PARA DESESTRUCTURAR
+const createProductData = (idProduct) => {
 
-//FUNCION AUXILIAR PARA DESESTRUCTURAR
-const createProductData = (product) => {
-    console.log(product)
-    const { id, precio, name, img } = product; // los saco
+    const products = productsData.filter(product => product.id == idProduct);
+
+    const { id, precio, name, img } = products[0]; // los saco
 
     return { id, precio, name, img } // retorno un solo objeto con las propiedas que necesito
 };
 
-// CHEQUEO SI PRODUCTO YA EXISTE EN EL CARRITO
-const isProductInCart = (productId) => {
-    return cart.find((item) => {
+// ---------  CHEQUEO SI PRODUCTO YA EXISTE EN EL CARRITO  ---------  //
+const estaElProductoEnElCarrito = (productId) => {
+    return carrito.find((item) => {
         return item.id === productId;
-    }); // si me devuelve algo es TRU si no me devuelva nada es FALSE
+    }); // si me devuelve algo es TRUE si no me devuelva nada es FALSE
 };
 
-//AGREGO UNIDAD DE PRODUCTO AL CARRITO
-const addUnitProduct = (product) => {
+// ---------  AGREGO UNIDAD DE PRODUCTO AL CARRITO  ---------  //
+const agregarUnidadProducto = (product) => {
+
     carrito = carrito.map((cartProduct) => {
         return cartProduct.id === product.id
             ? {...cartProduct, quantity: cartProduct.quantity + 1}
             : cartProduct;        
-    })
-
+    });
 };
 
-// MODAL
+// ---------  MODAL  ---------  //
 const showModal = (msj) => {
     modal.classList.add("active-modal");
     modal.textContent = msj;
@@ -314,8 +277,9 @@ const showModal = (msj) => {
     }, 1500)
 };
 
-// SI EL PRODUCTO NO EXISTE EN EL CARRITO HAY QUE CREARLO
-const createCartProduct = () => {
+// ---------  SI EL PRODUCTO NO EXISTE EN EL CARRITO HAY QUE CREARLO  ---------  //
+const createCartProduct = (product) => {
+
     carrito = [
         ...carrito,
         {
@@ -325,7 +289,7 @@ const createCartProduct = () => {
     ];
 };
 
-//CHEQUEAR DISABLE DE BOTONES DE COMPRA Y VACIAR CARRITO
+// ---------  CHEQUEAR DISABLE DE BOTONES DE COMPRA Y VACIAR CARRITO  ---------  //
 const disableButtons = (btn) => {
     if(!carrito.length) {
         btn.classList.add("disabled");
@@ -334,71 +298,136 @@ const disableButtons = (btn) => {
     }
 };
 
+//  ---------  RENDERIZAR BUBBLE  ---------  //
+const renderCartBubble = () => {
+    cartBubble.textContent = carrito.reduce((acumulador, valor) => {
+        return acumulador + valor.quantity;
+    }, 0);
+};
 
-
-//RENDERIZAR ESTADO DEL CARRITO
+//  ---------  RENDERIZAR ESTADO DEL CARRITO  ---------  //
 const updateCartStatus = () => {
     //GUARDAR CARRITO EN LOCAL STORAGE
     saveCartToLocalStorage();
     //RENDERIZAR CARRITO
     renderCart();
     //MOSTRAR EL TOTAL DEL CARRITO
-    showCartTotal();
+    mostrarTotalCarrito();
     //CHEQUEAR DISABLE DE BOTONES
     disableButtons(buyBtn);
     disableButtons(deleteBtn);
     
-
-
     //RENDER BURBUJA CARRITO
+    renderCartBubble();
+};
 
-}
-
-
-// AGREGO PRODUCTO AL CARRITO
-const addProduct = (e) => {
-    if (!e.target.classList.contains("btn__add")) {
+// ---------  AGREGO PRODUCTO AL CARRITO  ---------  //
+const agregarProducto = (e) => {
+    e.preventDefault()
+    
+    if (!e.target.classList.contains("btn-add")) {
         return;
     }
+        const product = createProductData(e.target.dataset.id);
 
-    console.log(e.target)
-    console.log(e.dataset.id) 
-   
-    const product = createProductData(e.target.dataset);
-
-    //CHEQUEAR SI EL PRODUCTO YA EXISTE
-    if(isProductInCart(product.id)){
+        //CHEQUEAR SI EL PRODUCTO YA EXISTE
+    if (estaElProductoEnElCarrito(product.id)){
+        console.log("El producto ya existe")
         //AGREGAMOS UNIDAD AL PRODUCTO
-        addUnitProduct(product);
+        agregarUnidadProducto(product);
         //DAMOS FEEDBACK AL USUARIO
-        showModal("Se agregó una unidad del producto al carrito.");      
-
+        showModal("Se agregó una unidad del producto al carrito.");     
     } 
     else {
-        //SI EL PRODUCTO NO EXISTE
-        //CREAMOS EL NUEVO PRODUCTO EN EL ARRAY 
+        //SI EL PRODUCTO NO EXISTE CREAMOS EL NUEVO PRODUCTO EN EL ARRAY 
         createCartProduct(product);
         //DAMOS FEEDBACK
         showModal("El producto se ha agregado al carrito.");
-    }
-
-    //UPDATE DEL CARRITO
+    }    
+    // UPDATE DEL CARRITO
     updateCartStatus();
-    
-
 };
 
+// ---------  REMOVER PRODUCTO DEL CARRITO ---------  //
+const removerProductoDelCarrito = (productoExistente) => {
+    carrito = carrito.filter( (producto) => {
+        return producto.id !== productoExistente.id
+    });
+    updateCartStatus();
+};
 
+// ---------  REMOVER UNIDAD DE UN PRODUCTO DEL CARRITO ---------  //
+const sacarUnidadAlProducto = (productoExistente) => {
+    carrito = carrito.map((producto) => {
+        return producto.id === productoExistente.id
+                ? {...producto, quantity: Number(producto.quantity) - 1 }
+                : producto;
+    });
+};
 
+// ---------  BOTON MENOS  --------- //
+const handlerBotonMenos = (id) => { 
+    const existeProductoEnCarrito = carrito.find((item) => item.id == id);
+    
+    if (existeProductoEnCarrito.quantity === 1) {
+        //pedir confirmacion
+        if(window.confirm("¿Desea eliminar el producto del carrito?")) {
+             //eliminar producto
+            removerProductoDelCarrito(existeProductoEnCarrito);
+        }
+        return
+    }
+    // sacarle unidad al producto
+    sacarUnidadAlProducto(existeProductoEnCarrito);
+};
 
+// ---------  BOTON MAS  ---------  //
+const handlerBotonMas = (id) => {
+    const existeProductoEnCarrito = carrito.find((item) => item.id == id);
+    agregarUnidadProducto(existeProductoEnCarrito);
+};
 
+// ---------  HANDLER BOTONES MAS Y MENOS  ---------  //
+const handlerCantidad = (e) => {
+    if (e.target.classList.contains("down")) {
+        //manejamos evento de boton menos
+        handlerBotonMenos(e.target.dataset.id);
+    }    
+    else if(e.target.classList.contains("up")) {
+        //manejamos el evento del boton más
+        handlerBotonMas(e.target.dataset.id)
+    }
+    //actualizamos el estado del carrito
+    updateCartStatus();
+};
 
+//  ---------   VACIAR CARRITO  --------- //
+const resetItemsDelCarrito = () => {
+    carrito = []; //VACIO EL CARRITO
+    updateCartStatus(); 
+};
 
-// 
+//  --------- FINALIZAR COMPRA  ---------  //
+const completarAccionComprar = (confirmMsg, successMsg) => {
+    if(!carrito.length) return;
+
+    if(window.confirm(confirmMsg)) {
+        resetItemsDelCarrito();
+        alert(successMsg);
+    }
+};
+
+const completarCompra = () => {
+    completarAccionComprar("¿Desea completar su compra?", "Gracias por comprar en Coffe&Cats!");
+};
+
+const borrarCarrito = () => {
+    completarAccionComprar("¿Está seguro que desea vaciar su carrito?", "No hay productos en el carrito");
+};
+
 const init = () => {
 
-    renderProducts(appState.products[appState.currentProductsIndex]);
-    btnMostrarMas.addEventListener("click", mostrarMasProductos);
+    renderProducts(appState.products[appState.indiceActualDeProductos]);
     btnMostrarMas.addEventListener("click", mostrarMasProductos);
     categoriesContainer.addEventListener("click", applyFilter);
     cartBtn.addEventListener("click", toggleCart);
@@ -407,14 +436,13 @@ const init = () => {
     barsMenu.addEventListener("click", closeOnClick);
 	overlay.addEventListener("click", closeOnOverlayClick);
     document.addEventListener("DOMContentLoaded", renderCart);
-    document.addEventListener("DOMContentLoaded", showCartTotal);
-    productosContainer.addEventListener("click", addProduct);
+    document.addEventListener("DOMContentLoaded", mostrarTotalCarrito);
+    productosContainer.addEventListener("click", agregarProducto);
+    productsCart.addEventListener("click", handlerCantidad);
+    buyBtn.addEventListener("click", completarCompra);
+    deleteBtn.addEventListener("click", borrarCarrito)
     disableButtons(buyBtn);
     disableButtons(deleteBtn);
-
-  
-
-
 };
 
 init();

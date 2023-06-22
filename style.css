@@ -51,6 +51,7 @@
     font-size: 25px;
     padding: 1vw;
     margin-right: 10px;
+    position: relative;
 }
 
 .navbar,
@@ -77,6 +78,24 @@
 
 .navbar__list li a:first-child {
     font-weight: bolder;
+}
+
+.cart-bubble{
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    text-align: center;
+    background-color: #ff63b5;
+    color: white;
+    font-size: 10px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1px;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
 }
 
 /* SECTION HERO */
@@ -242,7 +261,7 @@
     font-weight: bolder;
 }
 
-.btn__add {
+.btn-add {
     width: fit-content;
     height: fit-content;
     padding: 0rem 1rem;
@@ -251,7 +270,6 @@
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     box-shadow: 0px 10px 14px -7px #222324;
-
     border: none;
     cursor: pointer;
 }
@@ -543,7 +561,7 @@ form {
 
 .footer__medios-pago-img {
     height: 25vh;
-    width: 30vw;
+    /* width: 30vw; */
     margin: 1rem;
 }
 
@@ -630,7 +648,7 @@ form {
 .cart-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 /* TOGGLE DEL CARRITO */
@@ -669,7 +687,11 @@ form {
 
 .cart-img {
     height: 90px;
-    width: 65px;
+    /* width: 65px; */
+}
+
+.item-info{
+    width: 10vw;
 }
 
 .item-title {
@@ -712,7 +734,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 8px;
 }
 
 .quantity-handler {

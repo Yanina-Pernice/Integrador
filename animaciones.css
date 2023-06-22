@@ -143,14 +143,14 @@ html{
 
 /* BOTONES SECTION MENU */
 
-.btn__add{
+.btn-add{
     display: inline-block;
     position: relative;
     transition: all 0.3s ease; 
     z-index: 1;    
 }
 
-.btn__add:before{
+.btn-add:before{
     content: "";
     position: absolute;
     top: 0;
@@ -164,18 +164,18 @@ html{
     transition: 0.5s all ease;
 }
 
-.btn__add:hover, .btn__add:focus{
+.btn-add:hover, .btn-add:focus{
     color: #f2f2f2;
 }
 
-.btn__add:hover:before, .btn__add:focus:before{
+.btn-add:hover:before, .btn-add:focus:before{
     transition: 0.5s all ease;
     left: 0;
     right: 0;
     opacity: 1;
 }
 
-.btn__add:active{
+.btn-add:active{
     transform: scale(0.9);
 }
 
