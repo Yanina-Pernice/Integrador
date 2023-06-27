@@ -3,79 +3,88 @@ const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#contraseña");
 const msjError = document.querySelector("#form__error");
 
+// buscar la data en el local storgae
 const users = JSON.parse(localStorage.getItem("users")) || [];
 
-const saveToSessionStorage = (user) => {
-	sessionStorage.setItem("activeUser", JSON.stringify(user));
+// guardar en el session storage
+const guardarEnSessionStorage = (user) => {
+  sessionStorage.setItem("activeUser", JSON.stringify(user));
 };
 
-const showError = (message) => {
-	msjError.textContent = message;
+const mostrarError = (message) => {
+  msjError.textContent = message;
 };
 
-//validaciones 
 const isEmpty = (input) => {
-	return !input.value.trim().length;
+  return !input.value.trim().length;
 };
 
-const isExistingEmail = (input) => {
-	return users.some((user) => user.email === input.value.trim());
+const existeEmail = (input) => {
+  return users.some((user) => {
+    return user.email ===  input.value.trim();
+  }); 
+  
 };
 
-const isMatchingData = () => {
-    const user = users.find((user) => user.email === email.emailInput.value.trim());
-    return user.password === passwordInput.value.trim();
-};
-
-const checkValidAccount = () => {
-    let valid = false;
-
-    //VALIDACIONES
-    //input vacío
-    if (isEmpty(emailInput)){
-        showError("Los campos son obligatorios.");
-        return;
-    }
-    //input vacío
-    if (isEmpty(passwordInput)){
-        showError("Los campos son obligatorios.");
-        return;
-    }
-    //el mail ya existe?
-    if(!isExistingEmail(emailInput)){
-        showError("El email ingreado no es válido.");
-        return;
-    }
-    //mail y password coinciden?
-    if (!isMatchingData()){
-        showError("Los datos ingresados son incorrectos.");
-        return;
-    }
-
-    valid = true;
-    msjError.textContent = "";
-    return valid;
+//si coinciden mail y pass
+const coincidenEmailYpass = () => {
+  const user = users.find( (user) => {
+    return user.email === emailInput.value.trim();
+  });
+  return user.password === passwordInput.value.trim();
 
 };
+
+const laCuentaEsValida = () => {
+  let valid = false;
+  //si email esta vacio, tiro error  
+  if (isEmpty(emailInput)) {
+    mostrarError("Por favor complete los campos");
+    return;
+  }
+  // si pass esta vacio
+  if (isEmpty(passwordInput)) {
+    mostrarError("Por favor complete los campos");
+    return;
+  }
+
+  //si mail existe en ""base de datos""
+  if (!existeEmail(emailInput)) {
+    mostrarError ("El email ingresado no es válido");
+    return;    
+  } 
+  //si coinciden mail y pass
+  if (!coincidenEmailYpass()) {
+    mostrarError("Los datos ingresados son incorrectos");
+    return;
+  };
+
+  valid = true;
+  mostrarError.textContent = "";
+  return valid;
+};
+
 
 const login = (e) => {
-    e.preventDefault(); // Prevenimos el comport. x Default
+  e.preventDefault(); // Prevenir el envío del formulario por defecto
 
-    //chequear si la cuenta es valida
-    if(checkValidAccount()){
-        const user = users.find((user) => user.email === emailInput.value.trim());
-        console.log(user);
-        saveToSessionStorage(user);
-        window.location.href = "index.html";//redirigir a la pag ppal
-    } 
+  //si la cuenta es valida
+  if (laCuentaEsValida()) {
+    //traigo el usuario correspondiente
+    const user = users.find((user) => user.email === emailInput.value.trim());
+    //guardamos el usuario en el SS
+    guardarEnSessionStorage(user);
+
+    //redirigimos al home
+    window.location.href = "./index.html";
+  };
+    
+
 };
 
-
 const init = () => {
-    loginForm.addEventListener("submit", login);
+  loginForm.addEventListener("submit", login);
 
 };
 
 init();
-
-

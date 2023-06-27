@@ -300,8 +300,7 @@
     /* MODIFICAR CARRITO PARA CELULAR */
 
     .cart {
-        left: 0;
-        width: 100%;
+        width: 95%;
         border: none;
     }
 
