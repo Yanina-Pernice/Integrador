@@ -7,7 +7,7 @@
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     list-style-type: none;
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
 }
 
 /* HEADER */
@@ -566,11 +566,12 @@ form {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+    margin: 1vw;
 }
 
 .footer__medios-pago-img {
-    /* height: 25vh; */
-    width: 10vh;
+    width: 8vh;
 }
 
 .footer p,
