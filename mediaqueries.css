@@ -285,8 +285,8 @@
     }
 
     .footer__medios-pago-img {
-        height: 20vh;
         max-width: 100%;
+        margin: 5px;
     }
 
 
