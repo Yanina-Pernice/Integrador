@@ -19,6 +19,8 @@ const buyBtn = document.querySelector(".cart-btn");
 const deleteBtn = document.querySelector(".btn-delete");
 // BURBUJA CARRITO
 const cartBubble = document.querySelector(".cart-bubble");
+// BURBUJA BUBBLE UP
+const bubbleTop = document.querySelector(".top");
 
 // ---------  GUARDAR Y BUSCAR EL CART EN EL LOCAL STORAGE  ---------  //
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -425,6 +427,22 @@ const borrarCarrito = () => {
     completarAccionComprar("¿Está seguro que desea vaciar su carrito?", "No hay productos en el carrito");
 };
 
+const toTop = (e) => {
+    e.preventDefault();
+    console.log()
+
+    let scrollPosition = window.scrollY;
+
+    if (scrollPosition > 0) {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+        return;
+    }
+
+};
+
 const init = () => {
 
     renderProducts(appState.products[appState.indiceActualDeProductos]);
@@ -443,6 +461,7 @@ const init = () => {
     deleteBtn.addEventListener("click", borrarCarrito)
     disableButtons(buyBtn);
     disableButtons(deleteBtn);
+    bubbleTop.addEventListener("click", toTop);
 };
 
 init();

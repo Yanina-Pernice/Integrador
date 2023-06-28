@@ -8,15 +8,6 @@
     /* border-color: 2px solid blue ; */
 }
 
-.btn__volver{
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 5px 5px;
-    background-color: #dc3545;
-}
-
 .login__container{
     display: flex;
     flex-direction: column;
@@ -31,10 +22,25 @@
 }
 
 .contenedor__form{
-    width: 400px;
+    max-width: 350px;
+    width: 90%;
     border-radius: 10px;
     opacity: 0.8;
-    padding: 4vw;
+    padding: 4vw;  
+    position: relative;
+}
+
+.btn__volver{
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    z-index: 2;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 5px 5px;
+    background-color: #dc3545;
 }
 
 h2{
@@ -44,12 +50,14 @@ h2{
 h2,
 a{
     background: none;
+    text-align: center;
 }
 
 form{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: 10px;
     background: none;
     justify-content: center;
     align-items: center;
@@ -63,32 +71,60 @@ form{
     text-align: center;
     gap: 4px;
     background: none;
-    font-size: 16px;
+    font-size: 1rem;
+    width: 100%;
+
 }
 
 .email__login,
 .password__login{
-    width: 100%;
     padding: 15px 35px 15px 15px;
     border: 2px solid #ccc;
     border-radius: 4px;
     width: 200px;
+    outline: none;
 }
 
 .btn__login {
-    width: 15vw;
+    width: 200px;
     padding: 10px 6px;
     font-weight: bolder;
     text-decoration: none;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: uppercase ;
     border-radius: 4px;
+    outline: no;
     color: #fffffe;
     background: #c9184a;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-a {
-    font-size: 14px;
+/* ANIMACIONES */
+
+.btn__login::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.btn__login:hover {
+    background-color: #d4535e;
+    color:#131f0f;
+}
+
+.btn__login:hover::before {
+    transform: scaleX(1);
 }
 
 a:nth-of-type(1):hover{
@@ -99,14 +135,28 @@ a:nth-of-type(1):hover{
 a:last-child:hover {
     color: #961e28;
     font-weight: bolder;
+    text-align: center;
 }
 
-/* ---- MEDIAQUERIES ---- */
+/* BOTON VOLVER */
+
+#icono {
+    opacity: 5;
+    transition: opacity 0.3s ease;
+    color: white;
+}
+      
+#icono:hover {
+    opacity: 0.5;
+    color:#0b2008;
+}  
+
+
+/* ------------ MEDIAQUERIES ------------ */
 
 /* -- TABLET -- */
 @media (max-width: 992px){
     .btn__login {
-        width: 20vw;
         font-size: 14px;
     }
 
@@ -114,58 +164,6 @@ a:last-child:hover {
         font-size: 16px;
    }
 }
-
-/* -- MOBILE PHONE -- */
-
-@media (max-width: 568px){
-    .contenedor__form{
-        height: 370px;
-        width: 280px;
-    }
-
-    .btn__login {
-        width: 40vw;
-    }
-}
-/* ---- MEDIAQUERIES ---- */
-
-/* ----- ANIMACIONES ---- */
-
-.btn__login{
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.btn__login::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    top:0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(252, 70, 100);
-    transform: translateX(-100%);
-    transition: all .3s;
-    z-index: -1;
-
-}
-
-.btn__login:hover::before{
-    transform: translateX(0);
-}
-
-/* BOTON VOLVER */
-
-#icono {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
-      
-#icono:hover {
-    opacity: 0.5;
-}  
-
 
 /* MENSAJE ERROR */
 
@@ -178,11 +176,14 @@ a:last-child:hover {
     max-width: 350px;
     text-align: center;
     display: none;
+
 }
 
 #form__error {
     color: #dc3545;
-    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
     margin: 4px 0px;
     max-width: 350px;
     text-align: center;

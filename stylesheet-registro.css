@@ -8,16 +8,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.btn__volver{
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 5px 5px;
-    background-color: #dc3545;
-}
-
-
 .registro__container{
     display: flex;
     flex-direction: column;
@@ -32,11 +22,25 @@
 }
 
 .contenedor__form{
-    /* height: 480px; */
-    width: 400px;
+    max-width: 350px;
+    width: 90%;
     border-radius: 10px;
     opacity: 0.8;
-    padding: 3vw;
+    padding: 4vw;
+    position: relative;
+}
+
+.btn__volver{
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    z-index: 2;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 5px 5px;
+    background-color: #dc3545;
 }
 
 h2{
@@ -46,6 +50,8 @@ h2{
 h2,
 a{
     background: none;
+    text-align: center;
+
 }
 
 form{
@@ -53,7 +59,8 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    margin: 10px;
     background: none;    
 }
 
@@ -65,20 +72,21 @@ form{
     text-align: center;
     gap: 4px;
     background: none;
-    font-size: 16px;
+    width: 100%;
 }
 
 .form__input{
-    padding: 15px;
+    padding: 15px 35px 15px 15px;
     border: 2px solid #ccc;
     border-radius: 4px;
-    width: 300px;
+    width: 200px;
+    outline: none;
 }
 
 .btn__registro { 
     color:#fffffe;
     background: #c9184a;
-    width: 15vw;
+    width: 200px;
     border: none;
     text-decoration: none;
     text-transform: uppercase;
@@ -88,7 +96,6 @@ form{
     padding: 12px 10px;
     border-radius: 4px;
     cursor: pointer;
-
 }
 
 p{
@@ -100,8 +107,6 @@ a:last-child:hover {
     color: #961e28;
     font-weight: bolder;
 }
-
-
 
 /* ERROR - SUCCESS */
 
@@ -128,81 +133,64 @@ a:last-child:hover {
     text-align: center;
 }
 
-
-/* MEDIAQUERIES */
-
-/* TABLET */
-@media (max-width: 992px){
-
-    .btn__registro {
-        width: 20vw;
-        font-size: 14px;
-    }
-}
-
-/* MOBILE PHONE */
-
-@media (max-width: 568px){
-    .contenedor__form{
-        width: 280px;
-    }
-
-    .btn__registro {
-        width: 45vw;
-        font-size: 12px;
-    }
-
-    a:nth-of-type(2){
-        font-size: 12px;
-    }
-
-    .fa-lg {
-        font-size: 1rem;
-    }
-   
-
-    .form__input{
-        width:220px;
-    }
-}
-
 /* ANIMACIONES */
 
 .btn__registro{
     position: relative;
     overflow: hidden;
     z-index: 1;
+    background-color: #c9184a;
+    color: #fff;
+    transition: background-color 0.3s ease;
 }
 
-.btn__registro::before{
+.btn__registro::before {
     content: "";
     position: absolute;
     left: 0;
-    top:0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(252, 70, 100);
-    transform: translateX(-100%);
-    transition: all .3s;
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
     z-index: -1;
-
 }
 
-.btn__registro:hover::before{
-    transform: translateX(0);
+.btn__registro:hover {
+    background-color: #d4535e;
 }
 
+.btn__registro:hover::before {
+    transform: scaleX(1);
+}
 
 /* BOTON VOLVER */
 
 #icono {
-    opacity: 1;
+    opacity: 5;
     transition: opacity 0.3s ease;
+    color: white;
 }
       
 #icono:hover {
     opacity: 0.5;
+    color:#0b2008;
 }  
+
+
+/* ------------ MEDIAQUERIES ------------ */
+
+/* TABLET */
+@media (max-width: 992px){
+
+    .btn__registro {
+        font-size: 14px;
+    }
+}
+
+/* ------------ FIN MEDIAQUERIES ------------ */
 
 
 

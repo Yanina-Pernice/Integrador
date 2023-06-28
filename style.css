@@ -204,12 +204,12 @@
 }
 
 .productos-container {
-    width: 80%;
+    /* width: 80%; */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 10px;
     padding-bottom: 3vw;
 }
 
@@ -303,6 +303,10 @@
     font-weight: bolder;
 }
 
+.btn-load:hover {
+    background-color: coral;
+}
+
 
 /* DIVIDER fondo */
 
@@ -360,7 +364,7 @@
 
 .card .hover {
     width: 0%;
-    height: 40vh;
+    height: 30vh;
     background-color: rgba(56, 53, 53, 0.568);
     position: absolute;
     top: 0;
@@ -492,6 +496,15 @@ form {
     margin: .5vw;
     padding: .5vw;
     font-size: .75rem;
+    
+}
+
+.campo__text:focus,
+.mensaje:focus{
+    outline: none; /* Eliminar el contorno predeterminado del navegador */
+    border-color: rgb(201, 110, 209); /* Cambiar el color del borde */
+    box-shadow: 0 0 5px rgb(160, 66, 189); /* Agregar una sombra */
+
 }
 
 .mensaje {
@@ -591,25 +604,21 @@ form {
 /* BUTTON UP */
 
 .top {
-    display: flex;
-    width: 4vw;
-    height: 4vw;
     position: fixed;
-    bottom: 10px;
-    right: 5px;
-    font-size: 18px;
-    background-color: #685454;
-    color: #ea8a8a;
-    padding: 6px 2px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff63b5;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
     border-radius: 50%;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+    font-size: 1.2em;
 }
 
-.back-to-top:hover {
-    background-color: #444;
+.top:hover {
+    background-color: #074115;
 }
 
 /* OCULTAR MENU HAMBURGUESA Y CHECKBOX */
@@ -742,7 +751,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 5px;
 }
 
 .quantity-handler {
